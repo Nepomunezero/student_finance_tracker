@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Finance Tracker</title>
+  <link rel="stylesheet" href="allCss.css">
+</head>
+<body>
+  
+<!-- Header with Navigation -->
+  <header>
+    <h1><a href="index.html" class="bigHead">Student Finance Tracker</a></h1>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Dashboard</a></li>
+        <li><a href="html/about.html">About</a></li>
+        <li><a href="html/records.html">Records</a></li>
+        <li><a href="html/settings.html">Settings</a></li>
+        <li><a href="html/addForm.html">Add</a></li>
+      </ul>
+    </nav>
+  </header>
+<!-- Main Content area -->
+  <main id="main">
+      <h2 id="dashboard-title">Dashboard</h2>
+    <section id="dashboard" aria-labelledby="dashboard-title">
+
+      <div class="stats">
+        <div class="card">
+          <h3>Total Records</h3>
+          <p id="stat-total">0</p>
+        </div>
+        <div class="card">
+          <h3>Total Spending</h3>
+          <p id="stat-sum">0 RWF</p>
+        </div>
+        <div class="card">
+          <h3>Categories <select id="categoryFilter" onchange="updateStats(this.value)">
+    <option value="">All Categories</option>
+    <option value="food">Food</option>
+    <option value="books">Books</option>
+    <option value="transport">Transport</option>
+    <option value="entertainment">Entertainment</option>
+    <option value="clothing">Clothing</option>
+    <option value="fees">Fees</option>
+</select></h3>
+          <p id="stat-top">—</p>
+        </div>
+        <div class="card">
+    <h3>Last 7 Days Trend</h3>
+    <canvas id="trendChart" width="300" height="150" aria-label="Last 7 days spending trend"></canvas>
+    <div class="recent-transactions">
+        <h4>Recent Transactions</h4>
+        <ul id="recentList"></ul>
+    </div>
+</div>
+      </div>
+    </section>
+
+    <!-- Records Section -->
+  </main>
+
+  <footer>
+    <p>Student Finance Tracker Summative Assigniment Front-End Web development by Jean Nepo Munezero</p>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>

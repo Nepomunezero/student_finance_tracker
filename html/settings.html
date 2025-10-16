@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Student Finance Tracker</title>
+  <link rel="stylesheet" href="./../allCss.css">
+</head>
+<body>
+  
+
+  <header>
+    <h1><a href="./../index.html" class="bigHead">Student Finance Tracker</a></h1>
+    <nav>
+      <ul>
+        <li><a href="./../index.html">Dashboard</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="records.html">Records</a></li>
+        <li><a href="settings.html" class="active">Settings</a></li>
+        <li><a href="addForm.html">Add</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section id="settings-section" aria-labelledby="settings-title">
+      <h2 id="settings-title">Application Settings</h2>
+      <p>Adjust your preferences for currency and budget caps.</p>
+
+      <form id="settingsForm">
+        <!-- Currency Settings -->
+        <fieldset>
+          <legend>Currency Settings</legend>
+          <label for="baseCurrency">Base Currency:</label>
+          <select id="baseCurrency">
+            <option value="RWF" selected> 1 RWF</option>
+            <option value="USD">1 USD</option>
+            <option value="EUR">1 EUR</option>
+          </select>
+
+          <label for="rateUSD">USD Rate:</label>
+          <input type="number" id="rateUSD" step="0.0001" value="1" required>
+
+          <label for="rateEUR">EUR Rate:</label>
+          <input type="number" id="rateEUR" step="0.0001" value="1" required>
+        </fieldset>
+
+        <!-- Budget Cap -->
+        <fieldset>
+          <legend>Budget Cap</legend>
+          <label for="budgetCap">Set a monthly spending cap:</label>
+          <input type="number" id="budgetCap" step="0.01" value="0" required>
+          <p id="capMessage" aria-live="polite"></p>
+        </fieldset>
+
+        <div class="form-buttons">
+          <button type="submit" class="save1">Save Settings</button>
+          <button type="button" id="cancelSettingsBtn">Cancel</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Student Finance Tracker Summative Assigniment Front-End Web development by Jean Nepo Munezero</p>
+  </footer>
+
+  <script src="./../scripts/main.js"></script>
+  <script src="./../scripts/settings.js"></script>
+</body>
+</html>

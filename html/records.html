@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Records - Student Finance Tracker</title>
+  <link rel="stylesheet" href="./../allCss.css">
+</head>
+<body>
+  
+
+  <header>
+    <h1><a href="./../index.html" class="bigHead">Student Finance Tracker</a></h1>
+    <nav>
+      <ul>
+        <li><a href="./../index.html">Dashboard</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="records.html" class="active">Records</a></li>
+        <li><a href="settings.html">Settings</a></li>
+        <li><a href="addForm.html">Add</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <h1 class="records-title">Table Records</h1>
+
+  <main id="records-table" class="records-table">
+    <div class="table-controls">
+        <input 
+            type="search" 
+            id="searchInput" 
+            placeholder="Search records..." 
+            class="search-input"
+        >
+        <select id="sortSelect" class="sort-select">
+            <option value="az">Sort A-Z</option>
+            <option value="za">Sort Z-A</option>
+            <option value="date-new">Newest First</option>
+            <option value="date-old">Oldest First</option>
+            <option value="amount-high">Highest Amount</option>
+            <option value="amount-low">Lowest Amount</option>
+        </select>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Amount <span>
+          </span>
+          </th>
+          <th>Category</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="records-body">
+        <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get records from localStorage
+    const records = JSON.parse(localStorage.getItem('finance:data') || '[]');
+    const tbody = document.getElementById('records-body');
+    
+    // Populate table
+    records.forEach(record => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${record.description}</td>
+            <td>${record.amount.toFixed(2)} ${record.currency || 'RWF'}</td>
+            <td>${record.category}</td>
+            <td>${record.date}</td>
+            <td>
+                <button onclick="editRecord('${record.id}')">Edit</button>
+                <button onclick="deleteRecord('${record.id}')">Delete</button>
+            </td>
+        `;
+        tbody.appendChild(tr);
+    });
+});
+</script>
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>Student Finance Tracker Summative Assigniment Front-End Web development by Jean Nepo Munezero</p>
+  </footer>
+
+  <script src="./../scripts/main.js"></script>
+  <script src="./../scripts/records.js"></script>
+</body>
+</html>
