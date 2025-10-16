@@ -1,6 +1,6 @@
 GitHub pages URL:
 
-
+https://nepomunezero.github.io/student_finance_tracker/
 
 
 Chosen theme: Student Finance Tracker
